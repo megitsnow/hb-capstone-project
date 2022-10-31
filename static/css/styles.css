@@ -1,0 +1,25 @@
+.nav-bar {
+    display: flex;
+    margin: .5em;
+}
+
+body, nav {
+    font-family: 'Titillium Web', sans-serif;
+    color: #BCBCBC;
+    margin: 0;
+}
+
+.logos {
+    width: 200px;
+    height: 200px;
+}
+
+.logos img {
+    max-width: 100%
+}
+
+.logo-grid {
+    display: flex;
+    display: wrap;
+
+}

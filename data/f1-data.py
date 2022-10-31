@@ -2,6 +2,8 @@ from bs4 import BeautifulSoup
 import urllib
 import regex as re
 import requests
+import pprint
+
 
 
 drivers_txt = open('drivers.txt')
@@ -32,7 +34,8 @@ for driver in drivers.keys():
     img_url = get_main_wiki_image(drivers[driver]['url'])
     drivers[driver]['img'] = img_url
 
-print(drivers['1'])
+print(drivers)
+
 
 
     

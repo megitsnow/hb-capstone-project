@@ -36,3 +36,5 @@ print(constructors['1']['img'])
 print(constructors['2']['img'])
 print(constructors['3']['img'])
 print(constructors['4']['img'])
+
+print(constructors)
