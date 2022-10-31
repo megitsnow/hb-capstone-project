@@ -3,7 +3,8 @@
 from flask import Flask
 from flask import (Flask, render_template, request, flash, session, redirect, jsonify)
 import os
-# from model import connect_to_db, db
+from datetime import datetime
+import requests
 
 
 from jinja2 import StrictUndefined
@@ -11,6 +12,10 @@ from jinja2 import StrictUndefined
 app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
+
+API_KEY = os.environ["NEWS_API_KEY"]
+TODAY = datetime.today()
+DATE = TODAY.strftime("%y-%m-%d")
 
 
 @app.route("/")
@@ -27,15 +32,29 @@ def all_drivers():
 
 @app.route("/constructors")
 def all_constructors():
-    """View all movies."""
+    """View all constructors."""
 
     return render_template("index.html")
 
 @app.route("/recent_news")
 def recent_news():
-    """View all movies."""
+    """View recent news."""
 
     return render_template("index.html")
+
+@app.route("/recent_news_data")
+def get_recent_news():
+    """Get recent news data"""
+    url = ('https://newsapi.org/v2/everything?'
+    'q=Apple&'
+    'from=2022-10-31&'
+    'sortBy=popularity&'
+    'apiKey=ee29418291e04bc5b28d1f2c719cb218')
+    response = requests.get(url)
+    
+    
+
+    return jsonify(articles)
 
 @app.route("/logo_data")
 def fetch_logo_data():
